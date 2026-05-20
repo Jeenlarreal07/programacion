@@ -1,25 +1,22 @@
 import random
 import math
 def analizar_muestras(n):
-    # Generar lista de muestras aleatorias
-    muestras = [random.randint(1, 100) for _ in range(n)]
-    
-    # Eliminar duplicados usando set
-    muestras_unicas = set(muestras)
-    
-    # Calcular la raíz cuadrada del valor máximo
-    raiz_max = math.sqrt(max(muestras_unicas))
-    
-    # Retornar un diccionario con los resultados
-    resultado = {
-        'muestras': muestras,
-        'muestras_unicas': muestras_unicas,
-        'raiz_max': raiz_max
-    }
-    
-    return resultado
-# Ejemplo de uso
-n = 5
-resultados = analizar_muestras(n)
-print(resultados)   
-
+    lista_muestras = []
+    for i in range(n):
+        numero_al_alzar = random.randint(1, 50)
+        lista_muestras.append(numero_al_alzar)
+               
+        conjunto_limpio = set(lista_muestras)
+        valor_maximo = max(conjunto_limpio)
+        raiz_maximo = math.sqrt(valor_maximo)
+        reporte = {
+            "lista_original":lista_muestras,
+            "lista_sin_repetidos":conjunto_limpio,
+            "lista_maxima":round(raiz_maximo, 2)
+        }
+    return reporte
+resultado_final = analizar_muestras(10)
+print("==REPORTE DE MUESTRA==\n")
+print(f"lista original:{resultado_final['lista_original']}")
+print(f"lista sin repetidos:{resultado_final['lista_sin_repetidos']}")
+print(f"raíz cuadrada del valor máximo:{resultado_final['lista_maxima']}")
